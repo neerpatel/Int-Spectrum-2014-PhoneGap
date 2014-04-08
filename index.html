@@ -1,93 +1,95 @@
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1"> 
-		<title>International Spectrum 2014 Test App</title>
-		<link rel="stylesheet" href="css/Spectrum2014.min.css" />
-		<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
-		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-	</head>
-	<body>
-		<div data-role="page" data-theme="a" class="ui-responsive-panel" id="home">
-			<div data-role="header" data-position="inline">
-				<h1>It Worked!</h1>
-				<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-			</div>
-			<div data-role="content" data-theme="a">
-				Hello world
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1"> 
+	<title>International Spectrum 2014 Test App</title>
+	<link rel="stylesheet" href="css/Spectrum2014.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 
-				<ul>
+	<script type="text/javascript">
+				var deviceready = $("#deviceready");
+				
+				document.addEventListener("deviceready", function() {
+					var capture = $("#capture");
 					
-					<li><a href="#page2">Go To Page 2</a></li>
-					<li><a href="#camera">camera</a></li>
-				</ul>
-			</div>
+					capture.removeAttr('disabled');
+					capture.bind('touchstart', function() {
+						navigator.camera.getPicture(function(data)
+						{
+							console.log(data);
+							var img = $("<img>");
+							
+							img.attr('src', data);
+							
+							deviceready.append(img);
+							
+						}, function(error) {
+							console.log(error);
+						}, {
+							quality : 75,
+							destinationType : Camera.DestinationType.FILE_URL,
+							sourceType : Camera.PictureSourceType.CAMERA,
+							allowEdit : true,
+							encodingType: Camera.EncodingType.JPEG,
+							targetWidth: 1024,
+							targetHeight: 1024,
+							saveToPhotoAlbum: true,
+							correctOrientation: true
+						});
+					});
+				}, false);
+			</script>
+</head>
+<body>
+	<div data-role="page" data-theme="a" class="ui-responsive-panel" id="home">
+		<div data-role="header" data-position="inline">
+			<h1>It Worked!</h1>
+			<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
 		</div>
+		<div data-role="content" data-theme="a">
+			Hello world
 
-		<div data-role="page" data-theme="a" class="ui-responsive-panel" id="page2">
-			<div data-role="header" data-position="inline">
-				<h1>Pages2</h1>
-				<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-			</div>
-			<div data-role="content" data-theme="a">
-				This is page 2
-				<ul>
-					<li><a href="#home">Home</a></li>
-					
-				</ul>
-			</div>
+			<ul>
+
+				<li><a href="#page2">Go To Page 2</a></li>
+				<li><a href="#camera">camera</a></li>
+			</ul>
 		</div>
-		<div data-role="page" data-theme="a" class="ui-responsive-panel" id="camera">
-			<div data-role="header" data-position="inline">
-				<h1>Camera</h1>
-				<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-			</div>
-			<div data-role="content" data-theme="a">
+	</div>
+
+	<div data-role="page" data-theme="a" class="ui-responsive-panel" id="page2">
+		<div data-role="header" data-position="inline">
+			<h1>Pages2</h1>
+			<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+		</div>
+		<div data-role="content" data-theme="a">
+			This is page 2
+			<ul>
+				<li><a href="#home">Home</a></li>
+
+			</ul>
+		</div>
+	</div>
+	<div data-role="page" data-theme="a" class="ui-responsive-panel" id="camera">
+		<div data-role="header" data-position="inline">
+			<h1>Camera</h1>
+			<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+		</div>
+		<div data-role="content" data-theme="a">
 			<div id="deviceready">
 				<button id="capture" disabled>Capture Image</button>
-            </div>
-				<script type="text/javascript">
-			var deviceready = $("#deviceready");
-			
-			document.addEventListener("deviceready", function() {
-				var capture = $("#capture");
-				
-				capture.removeAttr('disabled');
-				capture.bind('touchstart', function() {
-					navigator.camera.getPicture(function(data)
-					{
-						console.log(data);
-						var img = $("<img>");
-						
-						img.attr('src', data);
-						
-						deviceready.append(img);
-						
-					}, function(error) {
-						console.log(error);
-					}, {
-						quality : 75,
-						destinationType : Camera.DestinationType.FILE_URL,
-						sourceType : Camera.PictureSourceType.CAMERA,
-						allowEdit : true,
-						encodingType: Camera.EncodingType.JPEG,
-						targetWidth: 1024,
-						targetHeight: 1024,
-						saveToPhotoAlbum: true,
-						correctOrientation: true
-					});
-				});
-			}, false);
-        </script>
-				<ul>
-					<li><a href="#home">Home</a></li>
-					
-				</ul>
 			</div>
+
+			<ul>
+				<li><a href="#home">Home</a></li>
+
+			</ul>
 		</div>
-	</body>
+	</div>
+</body>
 </html>
