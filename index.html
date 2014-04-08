@@ -12,28 +12,44 @@
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 	</head>
 	<body>
-		<div data-role="page" data-theme="a" class="ui-responsive-panel">
+		<div data-role="page" data-theme="a" class="ui-responsive-panel" id="home">
 			<div data-role="header" data-position="inline">
 				<h1>It Worked!</h1>
 				<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
 			</div>
 			<div data-role="content" data-theme="a">
 				Hello world
+
+				Stuff <br />
+				Stuff <br />
+				Stuff <br />
+				Stuff <br />
+				Stuff <br />
+				Stuff <br />
+				Stuff <br />
+				Stuff <br />
+				Stuff <br />
+				Stuff <br />
+
+				<ul>
+					
+					<li><a href="#page2">Go To Page 2</a></li>
+				</ul>
 			</div>
 		</div>
-		<div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="nav-panel" data-theme="a">
-
-					<ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
-						<li data-icon="delete" style="background-color:#111;">
-							<a href="#" data-rel="close">Close menu</a>
-						</li>
-						<li >
-							<a href="../about/accessibility.html">Hello World</a>
-						</li>
-						
-					</ul>
-
-					<!-- panel content goes here -->
-				</div><!-- /panel -->
+		
+		<div data-role="page" data-theme="a" class="ui-responsive-panel" id="page2">
+			<div data-role="header" data-position="inline">
+				<h1>Pages2</h1>
+				<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+			</div>
+			<div data-role="content" data-theme="a">
+				This is page 2
+				<ul>
+					<li><a href="#home">Home</a></li>
+					
+				</ul>
+			</div>
+		</div>
 	</body>
 </html>
