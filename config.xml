@@ -1,0 +1,31 @@
+<?xml version   ="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.nullpointers.intl-spectrum2014"
+    versioncode = "1"
+    version     = "1.0.0">
+    
+    <name>International Spectrum 2014 Test App</name>
+    
+    <content src="index.html"/>
+    
+    <description>
+        International Spectrum 2014 Test App
+    </description>
+    
+  <author href="http://nullpointers.com"
+        email="npatel@nullpointers.com">
+        Neer Patel
+    </author>
+    
+    <preference name="phonegap-version" value="3.5.0" />
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/file"/>      
+
+    <!-- for Android -->
+    <preference name="orientation" value="portrait" />
+    <preference name="android-minSdkVersion" value="9" />
+</widget>
+
